@@ -1,0 +1,83 @@
+/* Card 5 splashes */
+#full-card-5::before {
+    top: 10%;
+    left: 6%;
+    width: 85px;
+    height: 85px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath fill='%23ef4444' d='M100,30c-11,0-20,9-20,20c0,11,9,20,20,20c11,0,20-9,20-20C120,39,111,30,100,30z'/%3E%3Cpath fill='%23ef4444' d='M150,80c-8.3,0-15,6.7-15,15c0,8.3,6.7,15,15,15c8.3,0,15-6.7,15-15C165,86.7,158.3,80,150,80z'/%3E%3Cpath fill='%23ef4444' d='M50,80c-8.3,0-15,6.7-15,15c0,8.3,6.7,15,15,15c8.3,0,15-6.7,15-15C65,86.7,58.3,80,50,80z'/%3E%3C/svg%3E");
+    transform: rotate(-12deg);
+    animation: float 8.2s ease-in-out infinite 0.5s, pulse 9.2s ease-in-out infinite 1.5s;
+}
+
+#full-card-5::after {
+    bottom: 15%;
+    right: 7%;
+    width: 90px;
+    height: 90px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath fill='%23ef4444' d='M120,140c-5.5,0-10,4.5-10,10c0,5.5,4.5,10,10,10c5.5,0,10-4.5,10-10C130,144.5,125.5,140,120,140z'/%3E%3Cpath fill='%23ef4444' d='M80,140c-5.5,0-10,4.5-10,10c0,5.5,4.5,10,10,10c5.5,0,10-4.5,10-10C90,144.5,85.5,140,80,140z'/%3E%3Cpath fill='%23ef4444' d='M100,50c-27.6,0-50,22.4-50,50c0,27.6,22.4,50,50,50c27.6,0,50-22.4,50-50C150,72.4,127.6,50,100,50z'/%3E%3C/svg%3E");
+    transform: rotate(8deg);
+    animation: float 7.8s ease-in-out infinite 1.3s, pulse 10.2s ease-in-out infinite 0.7s;
+}
+
+/* Card 6 splashes */
+#full-card-6::before {
+    top: 12%;
+    right: 6%;
+    width: 95px;
+    height: 95px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath fill='%234f46e5' d='M100,65c-8.3,0-16.4,3.3-22.3,9.2C71.8,80.1,68.5,88.2,68.5,96.5c0,8.3,3.3,16.4,9.2,22.3c5.9,5.9,14,9.2,22.3,9.2c8.3,0,16.4-3.3,22.3-9.2c5.9-5.9,9.2-14,9.2-22.3c0-8.3-3.3-16.4-9.2-22.3C116.4,68.3,108.3,65,100,65z'/%3E%3C/svg%3E");
+    transform: rotate(15deg);
+    animation: float 9.3s ease-in-out infinite 0.9s, pulse 8.7s ease-in-out infinite 1.8s;
+}
+
+#full-card-6::after {
+    bottom: 18%;
+    left: 8%;
+    width: 80px;
+    height: 80px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath fill='%234f46e5' d='M140,40c-5.5,0-10.9,2.2-14.8,6.1c-3.9,3.9-6.1,9.3-6.1,14.8c0,5.5,2.2,10.9,6.1,14.8c3.9,3.9,9.3,6.1,14.8,6.1c5.5,0,10.9-2.2,14.8-6.1c3.9-3.9,6.1-9.3,6.1-14.8c0-5.5-2.2-10.9-6.1-14.8C150.9,42.2,145.5,40,140,40z'/%3E%3Cpath fill='%234f46e5' d='M40,140c0-5.5,2.2-10.9,6.1-14.8c3.9-3.9,9.3-6.1,14.8-6.1c5.5,0,10.9,2.2,14.8,6.1c3.9,3.9,6.1,9.3,6.1,14.8c0,5.5-2.2,10.9-6.1,14.8c-3.9,3.9-9.3,6.1-14.8,6.1c-5.5,0-10.9-2.2-14.8-6.1C42.2,150.9,40,145.5,40,140z'/%3E%3C/svg%3E");
+    transform: rotate(-10deg);
+    animation: float 8.8s ease-in-out infinite 1.6s, pulse 9.8s ease-in-out infinite 0.4s;
+}
+
+/* Card 7 splashes */
+#full-card-7::before {
+    top: 8%;
+    left: 7%;
+    width: 90px;
+    height: 90px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath fill='%2314b8a6' d='M100,50c-5.5,0-10,4.5-10,10s4.5,10,10,10s10-4.5,10-10S105.5,50,100,50z'/%3E%3Cpath fill='%2314b8a6' d='M140,70c-8.3,0-15,6.7-15,15s6.7,15,15,15s15-6.7,15-15S148.3,70,140,70z'/%3E%3Cpath fill='%2314b8a6' d='M60,70c-8.3,0-15,6.7-15,15s6.7,15,15,15s15-6.7,15-15S68.3,70,60,70z'/%3E%3C/svg%3E");
+    transform: rotate(-5deg);
+    animation: float 7.5s ease-in-out infinite 0.7s, pulse 8.9s ease-in-out infinite 1.4s;
+}
+
+#full-card-7::after {
+    bottom: 10%;
+    right: 5%;
+    width: 85px;
+    height: 85px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath fill='%2314b8a6' d='M120,120c-11,0-20,9-20,20s9,20,20,20s20-9,20-20S131,120,120,120z'/%3E%3Cpath fill='%2314b8a6' d='M80,120c-11,0-20,9-20,20s9,20,20,20s20-9,20-20S91,120,80,120z'/%3E%3C/svg%3E");
+    transform: rotate(12deg);
+    animation: float 9.2s ease-in-out infinite 1.2s, pulse 10.4s ease-in-out infinite 0.8s;
+}
+
+/* Card 8 splashes */
+#full-card-8::before {
+    top: 15%;
+    right: 8%;
+    width: 80px;
+    height: 80px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath fill='%239333ea' d='M90,40c-5.5,0-10,4.5-10,10c0,5.5,4.5,10,10,10c5.5,0,10-4.5,10-10C100,44.5,95.5,40,90,40z'/%3E%3Cpath fill='%239333ea' d='M130,70c-8.3,0-15,6.7-15,15c0,8.3,6.7,15,15,15c8.3,0,15-6.7,15-15C145,76.7,138.3,70,130,70z'/%3E%3C/svg%3E");
+    transform: rotate(18deg);
+    animation: float 8.7s ease-in-out infinite 0.6s, pulse 9.7s ease-in-out infinite 1.5s;
+}
+
+#full-card-8::after {
+    bottom: 12%;
+    left: 7%;
+    width: 95px;
+    height: 95px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath fill='%239333ea' d='M70,110c-11,0-20,9-20,20c0,11,9,20,20,20c11,0,20-9,20-20C90,119,81,110,70,110z'/%3E%3Cpath fill='%239333ea' d='M140,120c-16.6,0-30,13.4-30,30c0,16.6,13.4,30,30,30c16.6,0,30-13.4,30-30C170,133.4,156.6,120,140,120z'/%3E%3C/svg%3E");
+    transform: rotate(-15deg);
+    animation: float 7.7s ease-in-out infinite 1.4s, pulse 8.8s ease-in-out infinite 0.9s;
+}

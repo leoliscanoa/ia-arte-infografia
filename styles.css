@@ -1,0 +1,572 @@
+/* Estilos personalizados */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@400;700&family=Cinzel:wght@400;700&family=Lobster&family=Abril+Fatface&family=Pacifico&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif; /* Fuente base */
+    background-color: #e2e8f0; /* Fondo general un poco más gris */
+    padding: 0.5rem; /* Añadir padding al body */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+h1 {
+    font-family: 'Abril Fatface', cursive; /* Fuente artística para título principal */
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    color: #4a2c82; /* Color púrpura artístico */
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+h1::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    right: 25%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #4a2c82, transparent);
+}
+h2 {
+    font-family: 'Cinzel', serif; /* Fuente artística para subtítulos */
+}
+/* Contenedor principal con borde doble */
+.infographic-container {
+    max-width: 950px; /* Ancho máximo ajustado para el borde */
+    margin: 0.5rem auto; /* Centrar y añadir margen superior/inferior */
+    padding: 2rem; /* Relleno interno para separar contenido del borde */
+    background-color: #f0f4f8; /* Fondo interior */
+    border: 5px double #94a3b8; /* Borde doble gris pizarra */
+    border-radius: 0.75rem; /* Esquinas redondeadas para el marco */
+    position: relative; /* Para posicionar elementos absolutos dentro, como el robot */
+}
+
+.infographic-section {
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    position: relative; /* Para posibles interacciones futuras con el robot */
+    z-index: 1; /* Asegurar que las tarjetas estén por defecto sobre elementos de fondo */
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.5s ease, transform 0.5s ease, z-index 0s 0.5s;
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 100%; /* Prevent overflow */
+    box-sizing: border-box; /* Include padding in width calculation */
+    cursor: pointer; /* Indicate clickable */
+}
+.infographic-section.visible {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 2;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Miniature card styles */
+.column-2 .infographic-section {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    padding: 0;
+    margin: 1rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: default;
+}
+
+.column-2 .infographic-section.active-card {
+    animation: heartbeat 1.5s ease-in-out infinite;
+    opacity: 1;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+.column-2 .infographic-section .text-content {
+    display: none; /* Hide text content in miniature view */
+}
+
+.column-2 .infographic-section .icon-container {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Heartbeat animation */
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    15% { transform: scale(1.1); }
+    30% { transform: scale(1); }
+    45% { transform: scale(1.1); }
+    60% { transform: scale(1); }
+    100% { transform: scale(1); }
+}
+
+/* Expanded card styles */
+.infographic-section.expanded {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+    max-width: 100%;
+    height: 100vh;
+    max-height: 100vh;
+    overflow-y: auto;
+    z-index: 1000;
+    animation: none;
+    border-radius: 0;
+    display: flex;
+    padding: 2rem;
+}
+
+.infographic-section.expanded .text-content {
+    display: block;
+}
+
+/* Close button */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-family: sans-serif;
+    font-weight: bold;
+    z-index: 1200;
+}
+
+/* Overlay for expanded cards */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Full card styles */
+.full-cards-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1050;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.full-cards-container.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.full-card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    width: 60%;
+    height: 50%;
+    z-index: 1100;
+    padding: 2rem;
+    overflow-y: auto;
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    transition: transform 0.4s ease, opacity 0.4s ease, visibility 0.4s ease;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.full-card .icon-container {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.full-card.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+.infographic-section h2 {
+    color: #1f2937;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+    padding-bottom: 0.25rem;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    font-size: 1.375rem;
+}
+.infographic-section p, .infographic-section li {
+    color: #374151;
+    line-height: 1.6;
+    margin: 0;
+    font-size: 0.95rem;
+    text-align: justify;
+}
+ .infographic-section ul {
+    list-style-position: outside;
+    padding-left: 1.25rem;
+    text-align: justify;
+}
+ .infographic-section li {
+     margin-bottom: 0.5rem;
+ }
+.icon-container {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 0.5rem;
+    margin-top: 0.25rem;
+}
+.icon-container svg {
+    width: 50px;
+    height: 50px;
+    margin: auto;
+}
+.text-content {
+    flex-grow: 1;
+}
+.highlight {
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
+    color: #111827;
+    font-size: 1.1em;
+}
+.intro-paragraph {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #4b5563;
+    text-align: justify;
+}
+.reference {
+    font-size: 0.875rem;
+    color: #4b5563;
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #e5e7eb;
+    border-radius: 0.5rem;
+    text-align: center;
+    position: relative; /* Asegurar que esté dentro del flujo normal */
+    z-index: 1;
+    width: 100%; /* Ensure full width */
+}
+.reference h3 {
+     font-family: 'Roboto Slab', serif;
+     font-weight: 700;
+}
+.footer {
+    grid-area: footer; /* For grid layout */
+}
+
+/* Estilos para el Robot */
+.robot-mascot {
+    position: absolute; /* Posición absoluta relativa al contenedor */
+    bottom: 1rem; /* Posición desde abajo */
+    right: 1rem; /* Posición desde la derecha */
+    width: 150px; /* Ancho del robot */
+    height: auto; /* Alto automático */
+    z-index: 10; /* Asegurar que esté sobre las tarjetas */
+    transition: transform 0.3s ease; /* Transición suave para hover */
+}
+.robot-mascot:hover {
+     transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
+}
+
+/* Estilos específicos para el robot en el footer */
+.reference .robot-mascot {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+}
+
+/* En pantallas grandes */
+@media (min-width: 1024px) {
+    .column-1 .text-content p {
+        font-size: 1.2rem;
+        line-height: 1.6;
+    }
+}
+
+/* Colores de fondo específicos para cada tarjeta */
+.bg-card-summary { background-color: rgba(241, 245, 249, 0.1); }
+.bg-card-1 { background-color: #e0f2fe; } .icon-bg-1 { background-color: #bae6fd; }
+.bg-card-2 { background-color: #ede9fe; } .icon-bg-2 { background-color: #ddd6fe; }
+.bg-card-3 { background-color: #dcfce7; } .icon-bg-3 { background-color: #bbf7d0; }
+.bg-card-4 { background-color: #fef3c7; } .icon-bg-4 { background-color: #fde68a; }
+.bg-card-5 { background-color: #fee2e2; } .icon-bg-5 { background-color: #fecaca; }
+.bg-card-6 { background-color: #e0e7ff; } .icon-bg-6 { background-color: #c7d2fe; }
+.bg-card-7 { background-color: #ccfbf1; } .icon-bg-7 { background-color: #99f6e4; }
+.bg-card-8 { background-color: #f3e8ff; } .icon-bg-8 { background-color: #e9d5ff; }
+
+/* Diseño de dos columnas para pantallas amplias */
+@media (min-width: 1024px) {
+    body {
+        overflow: hidden; /* Prevent page scrolling on large screens */
+        height: 100vh;
+    }
+
+    .robot-mascot {
+        width: 300px; /* Robot más grande como fondo */
+        position: fixed; /* Posición fija */
+        bottom: auto; /* Anular posición desde abajo */
+        right: auto; /* Anular posición desde la derecha */
+        top: 50%; /* Centrar verticalmente */
+        left: 50%; /* Centrar horizontalmente */
+        transform: translate(-50%, -50%); /* Centrar exactamente */
+        z-index: -1; /* Colocar detrás del contenido */
+        opacity: 0.15; /* Hacer transparente */
+        pointer-events: none; /* Permitir interacción con elementos encima */
+        height: 100vh; /* Ocupar todo el alto de la pantalla */
+        object-fit: contain; /* Mantener proporciones */
+    }
+
+    .infographic-container {
+        max-width: 1200px;
+        height: 100vh; /* Fixed height for wide screens */
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "title title"
+            "intro intro"
+            "column1 column2"
+            "footer footer";
+        grid-template-rows: auto auto 1fr auto;
+        gap: 2rem;
+        overflow: hidden; /* Prevent container scrolling */
+    }
+
+    .page-title {
+        grid-area: title;
+    }
+
+    .intro-paragraph {
+        grid-area: intro;
+    }
+
+    .column-1 {
+        grid-area: column1;
+        position: relative; /* Changed from sticky */
+        align-self: start;
+        height: 100%; /* Fill the available height */
+        overflow-y: hidden; /* No scrolling in first column */
+        overflow-x: hidden; /* Prevent horizontal scrolling */
+        display: flex;
+        flex-direction: column;
+    }
+
+    .column-2 {
+        grid-area: column2;
+        perspective: 1000px;
+        transform-style: preserve-3d;
+        overflow-y: hidden; /* Disable scrolling in second column */
+        height: 100%; /* Fill the available height */
+        padding-right: 1rem; /* Add padding for scrollbar */
+        display: flex;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        justify-content: center;
+    }
+
+    .reference {
+        grid-area: footer;
+    }
+
+    .infographic-section {
+        margin-bottom: 2rem;
+        /* Prevent cards from overlapping */
+        transform-origin: center center;
+        z-index: 1;
+        transition: opacity 0.5s ease, transform 0.5s ease, z-index 0s 0.5s;
+    }
+
+    .infographic-section.visible {
+        z-index: 2;
+        transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+}
+
+/* Estilos para asegurar responsividad */
+@media (max-width: 1023px) {
+    .infographic-container {
+        height: auto; /* Auto height for small screens */
+        overflow: visible; /* Enable scrolling for the whole container */
+    }
+
+    .column-1, .column-2 {
+        width: 100%;
+        height: auto;
+        overflow: visible; /* Enable scrolling */
+    }
+
+    .robot-mascot {
+        width: 200px; /* Robot más grande como fondo */
+        position: fixed; /* Posición fija */
+        bottom: auto; /* Anular posición desde abajo */
+        right: auto; /* Anular posición desde la derecha */
+        top: 50%; /* Centrar verticalmente */
+        left: 50%; /* Centrar horizontalmente */
+        transform: translate(-50%, -50%); /* Centrar exactamente */
+        z-index: -1; /* Colocar detrás del contenido */
+        opacity: 0.2; /* Hacer transparente */
+        pointer-events: none; /* Permitir interacción con elementos encima */
+    }
+
+    /* Ensure reference is at the bottom */
+    .reference {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Improve card transitions for small screens */
+    .infographic-section {
+        margin-bottom: 2rem;
+        transform: scale(0.95);
+        opacity: 0;
+        transition: opacity 0.5s ease, transform 0.5s ease;
+        z-index: 1;
+    }
+
+    .infographic-section.visible {
+        transform: scale(1);
+        opacity: 1;
+        z-index: 2;
+    }
+
+    /* Adjust modal dimensions for medium screens */
+    .full-card {
+        width: 75%;
+        height: 60%;
+        padding: 1.75rem;
+    }
+}
+
+@media (max-width: 768px) { /* Tablets y móviles */
+     .infographic-container {
+         padding: 1.5rem; /* Menos padding en pantallas pequeñas */
+         margin: 1rem auto; /* Menos margen */
+     }
+
+     /* Ensure cards don't overlap */
+     .infographic-section {
+         margin-bottom: 1.5rem;
+         clear: both;
+     }
+
+     /* Adjust modal dimensions for tablets */
+     .full-card {
+         width: 80%;
+         height: 60%;
+         padding: 1.5rem;
+     }
+}
+
+@media (max-width: 640px) { /* Móviles */
+     .infographic-section {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        align-items: center;
+    }
+     .infographic-section p, .infographic-section li {
+         text-align: justify;
+     }
+     .infographic-section ul {
+         padding-left: 1.5rem;
+         display: block;
+         width: 100%;
+     }
+     .icon-container {
+         margin-bottom: 0.5rem;
+         margin-top: 0;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         text-align: center;
+     }
+    .infographic-section h2 {
+         font-size: 1.25rem;
+         text-align: center;
+    }
+    .text-content {
+        width: 100%;
+    }
+    .intro-paragraph {
+         text-align: justify;
+    }
+     .infographic-container {
+         padding: 1rem; /* Aún menos padding en móvil */
+         border-width: 3px; /* Borde más fino en móvil */
+     }
+      .robot-mascot {
+         width: 200px; /* Robot más grande como fondo */
+         position: fixed; /* Posición fija */
+         bottom: auto; /* Anular posición desde abajo */
+         right: auto; /* Anular posición desde la derecha */
+         top: 50%; /* Centrar verticalmente */
+         left: 50%; /* Centrar horizontalmente */
+         transform: translate(-50%, -50%); /* Centrar exactamente */
+         z-index: -1; /* Colocar detrás del contenido */
+         opacity: 0.2; /* Hacer transparente */
+         pointer-events: none; /* Permitir interacción con elementos encima */
+     }
+
+     /* Adjust modal dimensions for mobile */
+     .full-card {
+         width: 90%;
+         height: 50%;
+         padding: 1rem;
+         font-size: 0.9rem;
+     }
+
+     .full-card h2 {
+         font-size: 1.2rem;
+     }
+
+     .full-card .icon-container {
+         width: 80px;
+         height: 80px;
+         margin-bottom: 1rem;
+     }
+}
