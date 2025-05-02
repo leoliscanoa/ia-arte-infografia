@@ -1,0 +1,11 @@
+To enable GitHub Pages for this repository, follow these steps:
+
+1. Go to the GitHub repository at https://github.com/leoliscanoa/ia-arte-infografia
+2. Click on 'Settings' (tab at the top of the repository)
+3. Scroll down to the 'GitHub Pages' section
+4. Under 'Source', select 'main' branch
+5. Click 'Save'
+6. Wait a few minutes for GitHub Pages to build and deploy your site
+7. Your site will be available at https://leoliscanoa.github.io/ia-arte-infografia/
+
+Note: It may take a few minutes for the site to be published after enabling GitHub Pages.
